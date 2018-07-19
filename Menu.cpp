@@ -2,8 +2,8 @@
 
 void printNodes(const Graph &graph)
 {
-	for (auto &node : graph.getNodes())
-		std::cout << node.getName() << std::endl;
+	for (auto node : graph.getNodes())
+		std::cout << node->getName() << std::endl;
 
 	std::cout << std::endl;
 }

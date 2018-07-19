@@ -3,6 +3,12 @@
 #include <iostream>
 #include <regex>
 
+Graph::~Graph()
+{
+	for (auto node : nodes)
+		delete node;
+}
+
 bool Graph::loadFromFile(const std::string &filename)
 {
 	std::ifstream file(filename);
@@ -26,8 +32,8 @@ Node * Graph::createNode(const std::string nodeName)
 	Node *node = getNode(nodeName);
 	if (! node)
 	{
-		nodes.emplace_back(nodeName);
-		node = &nodes.back();
+		nodes.push_back(new Node(nodeName));
+		node = nodes.back();
 	}
 
 	return node;
@@ -35,23 +41,28 @@ Node * Graph::createNode(const std::string nodeName)
 
 Node * Graph::getNode(const std::string &nodeName)
 {
-	for (auto &node : nodes)
-		if (node.getName() == nodeName)
-			return &node;
+	for (auto node : nodes)
+		if (node->getName() == nodeName)
+			return node;
 
 	return nullptr;
 }
 
 const Node * Graph::getNode(const std::string &nodeName) const
 {
-	for (auto &node : nodes)
-		if (node.getName() == nodeName)
-			return &node;
+	for (auto node : nodes)
+		if (node->getName() == nodeName)
+			return node;
 
 	return nullptr;
 }
 
-const std::vector <Node> & Graph::getNodes() const
+const std::vector <Node *> & Graph::getNodes() const
+{
+	return nodes;
+}
+
+std::vector <Node *> & Graph::getNodes()
 {
 	return nodes;
 }
@@ -77,9 +88,9 @@ void Graph::doCommand(const std::string &command)
 	Node *nodeB = createNode(match [6]);
 
 	if (relatioship == "<")
-		createRelationship(nodeA, nodeB, false);
-	else if (relatioship == ">")
 		createRelationship(nodeB, nodeA, false);
+	else if (relatioship == ">")
+		createRelationship(nodeA, nodeB, false);
 	else
 		createRelationship(nodeA, nodeB, true);
 }

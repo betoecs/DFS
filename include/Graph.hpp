@@ -24,6 +24,11 @@ class Graph
 {
 public:
 	/////////////////////////////////////////////
+	// Frees the memory used by the nodes
+	/////////////////////////////////////////////
+	~Graph();
+
+	/////////////////////////////////////////////
 	// Reads a file of commands and execute them.
 	//
 	// Returns false if the file couldn't be openned.
@@ -53,9 +58,14 @@ public:
 	const Node * getNode(const std::string &nodeName) const;
 
 	/////////////////////////////////////////////
-	// Gets the nodes of the graph.
+	// Gets a const reference to the nodes of the graph.
 	/////////////////////////////////////////////
-	const std::vector <Node> & getNodes() const;
+	const std::vector <Node *> & getNodes() const;
+
+	/////////////////////////////////////////////
+	// Gets a reference to the nodes of the graph.
+	/////////////////////////////////////////////
+	std::vector <Node *> & getNodes();
 
 	/////////////////////////////////////////////
 	// Creates a relationship between the node A
@@ -74,19 +84,11 @@ public:
 	/////////////////////////////////////////////
 	void doCommand(const std::string &command);
 
-	/////////////////////////////////////////////
-	// Gets the paths from a given initial node.
-	//
-	// Returns a list of paths. A path is a list
-	// with the names of the nodes.
-	/////////////////////////////////////////////
-	std::vector <std::vector <std::string>> getPaths(Node *initialNode) const;
-
 private:
 	/////////////////////////////////////////////
 	// The nodes of the graph
 	/////////////////////////////////////////////
-	std::vector <Node> nodes;
+	std::vector <Node *> nodes;
 };
 
 #endif // GRAPH_HPP
