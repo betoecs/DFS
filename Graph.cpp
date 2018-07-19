@@ -127,7 +127,24 @@ void Graph::dfs(Node *initialNode)
 			if (prevNodes.size())
 				currentNode = prevNodes.top();
 			else
-				currentNode = nullptr;
+			{
+				bool foundNode = false;
+				for (auto node : nodes)
+				{
+					if (! node->isVisited())
+					{
+						currentNode = node;
+						currentNode->visit();
+						currentNode->setEntry(counter++);
+						prevNodes.push(currentNode);
+						foundNode = true;
+						break;
+					}
+				}
+
+				if (! foundNode)
+					currentNode = nullptr;
+			}
 		}
 	}
 }
