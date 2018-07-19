@@ -8,9 +8,9 @@ void printNodes(const Graph &graph)
 	std::cout << std::endl;
 }
 
-void getPaths(const Graph &graph)
+void printDFS(Graph &graph)
 {
-	const Node *initialNode = nullptr;
+	Node *initialNode = nullptr;
 	while (! initialNode)
 	{
 		std::string initialNodeName;
@@ -21,4 +21,12 @@ void getPaths(const Graph &graph)
 		if (! initialNode)
 			std::cout << "That node doesn't exist\n";
 	}
+
+	graph.dfs(initialNode);
+	for (auto node : graph.getNodes())
+	{
+		std::cout << node->getName() << "(" << node->getEntry() << ", " << node->getExit() << ")\n";
+		node->resetMetadata();
+	}
+	std::cout << std::endl;
 }

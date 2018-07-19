@@ -94,3 +94,40 @@ void Graph::doCommand(const std::string &command)
 	else
 		createRelationship(nodeA, nodeB, true);
 }
+
+void Graph::dfs(Node *initialNode)
+{
+	auto currentNode = initialNode;
+	std::vector <Node *> unvisitedNeighbours;
+	std::stack <Node *> prevNodes;
+
+	int counter = 1;
+	currentNode->setEntry(counter++);
+	currentNode->visit();
+	prevNodes.push(currentNode);
+
+	while (currentNode)
+	{
+		currentNode->getUnvisitedNeighbours(unvisitedNeighbours);
+
+		if (unvisitedNeighbours.size())
+		{
+			currentNode = unvisitedNeighbours [0];
+			unvisitedNeighbours.clear();
+
+			currentNode->visit();
+			currentNode->setEntry(counter++);
+			prevNodes.push(currentNode);
+		}
+		else
+		{
+			currentNode->setExit(counter++);
+			prevNodes.pop();
+
+			if (prevNodes.size())
+				currentNode = prevNodes.top();
+			else
+				currentNode = nullptr;
+		}
+	}
+}

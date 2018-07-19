@@ -10,10 +10,8 @@
 void printNodes(const Graph &graph);
 
 /////////////////////////////////////////////
-// Prints a menu to choose a initial node
-// by its name and prints the paths of that
-// node in the graph
+//
 /////////////////////////////////////////////
-void getPaths(const Graph &graph);
+void printDFS(Graph &graph);
 
 #endif // MENU_HPP

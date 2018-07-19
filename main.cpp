@@ -20,14 +20,15 @@ int main(int argc, char **argv)
 		// Menu
 		do
 		{
-			std::cout << "1. Print nodes\n" << "2. Get paths\n" << "3. Can reach it?\n" << "4. Exit\n" << "Enter an option:  ";
+			std::cout << "1. Print nodes\n" << "2. DFS\n" << "3. BFS\n" << "4. Exit\n" << "Enter an option:  ";
 			std::cin >> option;
 		} while (option < '1' || option > '4');
 
 		switch (option)
 		{
 			case '1': printNodes(graph); break;
-			case '2': getPaths(graph); break;
+			//case '2': getPaths(graph); break;
+			case '2': printDFS(graph); break;
 		}
 	}
 

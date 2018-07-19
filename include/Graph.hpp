@@ -84,6 +84,8 @@ public:
 	/////////////////////////////////////////////
 	void doCommand(const std::string &command);
 
+	void dfs(Node *initialNode);
+
 private:
 	/////////////////////////////////////////////
 	// The nodes of the graph

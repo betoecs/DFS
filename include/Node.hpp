@@ -33,6 +33,21 @@ public:
 	/////////////////////////////////////////////
     bool isVisited() const;
 
+	int getEntry() const;
+
+	void setEntry(int entry);
+
+	int getExit() const;
+
+	void setExit(int entry);
+
+	void getUnvisitedNeighbours(std::vector <Node *> &neighbours);
+
+	/////////////////////////////////////////////
+	// Sets visited to false and entry and exit to 0.
+	/////////////////////////////////////////////
+	void resetMetadata();
+
 	/////////////////////////////////////////////
 	// Adds a node as neighbour of this node.
 	/////////////////////////////////////////////
@@ -46,6 +61,10 @@ private:
 	// by visit().
 	/////////////////////////////////////////////
     bool visited;
+
+	int entry;
+
+	int exit;
 
 	/////////////////////////////////////////////
 	// The name of the node. Allows identify it
