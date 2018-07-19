@@ -131,3 +131,27 @@ void Graph::dfs(Node *initialNode)
 		}
 	}
 }
+
+void Graph::bfs(Node *initialNode)
+{
+	Node *currentNode = initialNode;
+	std::vector <Node *> nodesAtDistance;
+
+	nodesAtDistance.push_back(currentNode);
+	currentNode->setDistance(0);
+
+	while (nodesAtDistance.size())
+	{
+		currentNode = nodesAtDistance.front();
+		auto &neighbours = currentNode->getNeighbours();
+		int distance = currentNode->getDistance();
+
+		for (auto neighbour : neighbours)
+		{
+			neighbour->setDistance(distance + 1);
+			nodesAtDistance.push_back(neighbour);
+		}
+
+		nodesAtDistance.erase(nodesAtDistance.begin());
+	}
+}

@@ -86,6 +86,8 @@ public:
 
 	void dfs(Node *initialNode);
 
+	void bfs(Node *initialNode);
+
 private:
 	/////////////////////////////////////////////
 	// The nodes of the graph

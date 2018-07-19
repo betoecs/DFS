@@ -14,4 +14,6 @@ void printNodes(const Graph &graph);
 /////////////////////////////////////////////
 void printDFS(Graph &graph);
 
+void printBFS(Graph &graph);
+
 #endif // MENU_HPP

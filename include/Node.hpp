@@ -41,6 +41,12 @@ public:
 
 	void setExit(int entry);
 
+	int getDistance() const;
+
+	void setDistance(int distance);
+
+	std::vector <Node *> & getNeighbours();
+
 	void getUnvisitedNeighbours(std::vector <Node *> &neighbours);
 
 	/////////////////////////////////////////////
@@ -52,6 +58,8 @@ public:
 	// Adds a node as neighbour of this node.
 	/////////////////////////////////////////////
 	void addNode(Node *node);
+
+	static int infiniteDistance;
 
 private:
 	/////////////////////////////////////////////
@@ -65,6 +73,8 @@ private:
 	int entry;
 
 	int exit;
+
+	int distance;
 
 	/////////////////////////////////////////////
 	// The name of the node. Allows identify it

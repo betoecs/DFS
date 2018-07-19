@@ -29,6 +29,7 @@ int main(int argc, char **argv)
 			case '1': printNodes(graph); break;
 			//case '2': getPaths(graph); break;
 			case '2': printDFS(graph); break;
+			case '3': printBFS(graph);
 		}
 	}
 
