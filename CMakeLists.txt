@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.0)
+project(dfs)
+configure_file(${CMAKE_SOURCE_DIR}/doc/doxen.conf.cmake ${CMAKE_SOURCE_DIR}/doc/doxen.conf)
+include_directories(${CMAKE_SOURCE_DIR}/include)
+add_executable(dfs Graph.cpp Node.cpp Menu.cpp main.cpp)

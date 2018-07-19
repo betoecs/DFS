@@ -1,0 +1,123 @@
+@font-face
+{
+	font-family: 'Exo';
+	src: url('Exo-Light.ttf');
+}
+
+body
+{
+	margin: 0;
+	padding: 0;
+	font-family: 'Exo';
+	color: #222;
+}
+
+main
+{
+	width: 80%;
+	margin: auto;
+}
+
+/* nav */
+nav
+{
+	background-color: #2069f4;
+	width: 100%;
+	padding: 0;
+}
+
+nav a
+{
+	display: inline-block;
+	padding: 1.5%;
+	font-size: 120%;
+	text-decoration: none;
+	color: white;
+	width: 20%;
+	text-align: center;
+}
+
+nav a:hover
+{
+	cursor: pointer;
+	color: #eee;
+}
+
+/* Footer */
+footer
+{
+	max-width: 100%;
+	background-color: #ddd;
+	padding: 1%;
+	margin-top: 5%;
+}
+
+/* Tables */
+table
+{
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px #ddd solid;
+}
+
+.properties-table, .methods-table
+{
+	width: 60%;
+	margin: auto;
+	text-align: center;
+}
+
+.methods-table { width: 90%; }
+
+tr:nth-child(even) { background-color: #f2f2f2; }
+th { font-size: 110%; }
+
+td, th
+{
+	padding: 1%;
+}
+
+/* Headings */
+h1, h2, h3
+{
+	font-weight: 200;
+	text-align: center;
+	font-size: 400%;
+}
+
+h2 { font-size: 300%; }
+h3 { font-size: 200%; }
+
+/* Links */
+a
+{
+	color: #1487f0;
+	text-decoration: none;
+	transition: 0.4s;
+}
+
+a:hover
+{
+	color: #1053a1;
+}
+
+/* Paragraphs */
+p
+{
+	text-align: justify;
+	padding-left: 1%;
+}
+
+blockquote
+{
+	border-left: 5px #ddd solid;
+	padding-left: 1%;
+	color: #555;
+}
+
+/* hr */
+hr
+{
+	border-color: #70dffc;
+	border-style: dotted;
+}
